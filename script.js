@@ -41,12 +41,12 @@ function readFont(event) {
 }
 
 function createFontFamily(data, format, name) {
-    stylesheet.textContent += "@font-face { font-family: '"+name+"'; src: url('"+data+"') format("+format+"); }\n";
+    stylesheet.textContent += "@font-face { font-family: '"+[name,format].join('-')+"'; src: url('"+data+"') format("+format+"); }\n";
     var label = document.createElement("label");
     var radio = document.createElement("input");
     radio.type = "radio";
     radio.name = "family";
-    radio.value = name;
+    radio.value = [name,format].join('-');
     radio.checked = true;
     label.textContent = " "+name+" ("+format+")";
     label.insertBefore(radio, label.firstChild);
