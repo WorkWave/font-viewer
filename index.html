@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Font Viewer </title>
+        <script src="script.js"> </script>
+        <style>
+            form {
+                font-family: sans-serif;
+                margin: 1em;
+            }
+            .table-container {
+                overflow: auto;
+            }
+            td {
+                vertical-align: baseline;
+                white-space: nowrap
+            }
+            label {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend> Choose Font </legend>
+                <div data-radiogroup>
+                    <label>
+                        <input type="radio" name="family" value="sans-serif" />
+                        Sans-Serif
+                    </label>
+
+                    <label>
+                        <input type="radio" name="family" value="serif" />
+                        Serif
+                    </label>
+                </div>
+
+                <label>
+                    Add Font
+                    <input type="file" multiple />
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend> Options </legend>
+                <label>
+                    Preview
+                    <input name="preview" style="width: 64ex" placeholder="The quick brown fox jumps over the lazy dog. 1234567890" />
+                </label>
+            </fieldset>
+        </form>
+        <div class="table-container">
+            <table>
+                <tbody>
+                    <tr>
+                        <td> 12 </td>
+                        <td class="preview" style="font-size: 12pt"> The quick brown fox jumps over the lazy dog. 1234567890 </td>
+                    </tr>
+                    <tr>
+                        <td> 18 </td>
+                        <td class="preview" style="font-size: 18pt"> The quick brown fox jumps over the lazy dog. 1234567890 </td>
+                    </tr>
+                    <tr>
+                        <td> 24 </td>
+                        <td class="preview" style="font-size: 24pt"> The quick brown fox jumps over the lazy dog. 1234567890 </td>
+                    </tr>
+                    <tr>
+                        <td> 36 </td>
+                        <td class="preview" style="font-size: 36pt"> The quick brown fox jumps over the lazy dog. 1234567890 </td>
+                    </tr>
+                    <tr>
+                        <td> 48 </td>
+                        <td class="preview" style="font-size: 48pt"> The quick brown fox jumps over the lazy dog. 1234567890 </td>
+                    </tr>
+                    <tr>
+                        <td> 60 </td>
+                        <td class="preview" style="font-size: 60pt"> The quick brown fox jumps over the lazy dog. 1234567890 </td>
+                    </tr>
+                    <tr>
+                        <td> 72 </td>
+                        <td class="preview" style="font-size: 72pt"> The quick brown fox jumps over the lazy dog. 1234567890 </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
