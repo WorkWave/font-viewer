@@ -60,9 +60,15 @@ function fontRead(filename, event) {
     var dataURL = event.target.result;
     var type = dataURL.split(':')[1].split(',')[0];
 
-    var format = guessFontFormat(type, extension);
-
-    createFontFamily(dataURL, format, basename);
+    try {
+        var format = guessFontFormat(type, extension);
+        createFontFamily(dataURL, format, basename);
+    } catch (e) {
+        if(e instanceof UnrecognizedFontError)
+            alert(e.message);
+        else
+            throw e;
+    }
 }
 
 function guessFontFormat(type, extension) {
@@ -97,5 +103,12 @@ function guessFontFormat(type, extension) {
         }
     }
 
-    throw new Error("Unrecognized font type "+type+" with extension "+extension);
+    throw new UnrecognizedFontError("Unrecognized font type "+type+" with extension "+extension);
 }
+
+function UnrecognizedFontError(message) {
+    this.message = message;
+    this.stack = (new Error()).stack;
+}
+UnrecognizedFontError.prototype = Object.create(Error.prototype);
+UnrecognizedFontError.prototype.name = 'UnrecognizedFontError';
