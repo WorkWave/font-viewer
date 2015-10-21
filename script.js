@@ -51,7 +51,7 @@ function createFontFamily(data, format, name) {
     label.textContent = " "+name+" ("+format+")";
     label.insertBefore(radio, label.firstChild);
     document.querySelector('[data-radiogroup]').appendChild(label);
-    changeFontFamily(name);
+    changeFontFamily([name,format].join('-'));
 }
 
 function fontRead(filename, event) {
